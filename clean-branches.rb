@@ -10,6 +10,18 @@ if current_branch != "master"
   puts
 end
 
+remote = `git remote`.
+  split("\n").
+  map(&:strip)
+
+remote.each do |remote|
+  stale_branches = `git remote prune #{remote} --dry-run`
+  unless stale_branches.empty?
+    puts "pruning stale #{remote}-tracking branches"
+    `git remote prune #{remote}`
+  end
+end
+
 puts "Checking merged branches..."
 puts "---------------------------"
 remote_branches= `git branch -r --merged`.
