@@ -1,5 +1,5 @@
 class Cleaner
-  def warn_if_master
+  def warn_if_not_master
     if current_branch != "master"
       if current_branch != "HEAD"
         puts "\e[31mWARNING: You are NOT on branch master. Current branch: #{current_branch} \e[0m"
@@ -78,6 +78,6 @@ class Cleaner
   
   def initialize(args)
     current_branch
-    warn_if_master
+    warn_if_not_master
   end
 end
