@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require File.join(File.dirname(__FILE__), 'lib/cleaner')
+require 'pathname'
+
+require File.join(File.dirname(Pathname.new(__FILE__).realpath), 'lib/cleaner')
 
 Cleaner.new(ARGV).run
 
