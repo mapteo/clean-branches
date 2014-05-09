@@ -41,6 +41,10 @@ class Cleaner
     }
   end
   
+  def all_branches
+    @all_branches ||= `git branch -a --merged | ruby -ne 'puts gsub(/^[* ] /,"") unless /(master|staging|production|HEAD)$/`
+  end
+  
   def check_merged_branches
     puts "Checking merged branches..."
     puts "---------------------------"

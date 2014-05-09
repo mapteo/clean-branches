@@ -1,4 +1,4 @@
 clean-branches
 ==============
 
-Ruby script that check and delete merged branches
+Ruby script that checks and delete merged branches
